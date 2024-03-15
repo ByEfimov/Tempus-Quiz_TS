@@ -1,25 +1,14 @@
 import React from 'react';
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { FormProvider, useForm } from 'react-hook-form';
 import styles from './form.module.scss';
-
-interface FormInputCreateEvent {
-  designation: string;
-  specification: string;
-}
-
-interface FormInputLoginEvent {
-  loginEvent: string;
-}
-
-type FormInput = FormInputCreateEvent | FormInputLoginEvent;
 
 interface FormProps {
   children: React.ReactNode;
+  onSubmit: () => void;
 }
 
-const Form: React.FC<FormProps> = ({ children }) => {
-  const methods = useForm<FormInput>();
-  const onSubmit: SubmitHandler<FormInput> = (data) => console.log(data);
+const Form = ({ children, onSubmit }: FormProps) => {
+  const methods = useForm();
 
   return (
     <FormProvider {...methods}>
