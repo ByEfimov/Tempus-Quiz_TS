@@ -1,0 +1,41 @@
+.Header {
+  height: 70px;
+  border-bottom: 1px solid var(--TransparentColor);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+  .tempusLogo {
+    height: 45px;
+    img {
+      height: 100%;
+    }
+  }
+  .userLogo {
+    height: 45px;
+    width: 45px;
+    border: 1px solid var(--TransparentColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: var(--SecondaryBackgroundColor);
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .title {
+    text-align: center;
+    color: var(--PrimaryTextColor);
+    font-size: 28px;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,39 @@
+@import "./variables.css";
+
+@font-face {
+  font-family: "sfPro";
+  src: url("./fonts/sfpro/SF-Pro-Display-Light.otf") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "sfPro";
+  src: url("./fonts/sfpro/SF-Pro-Display-Regular.otf") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "sfPro";
+  src: url("./fonts/sfpro/SF-Pro-Display-Medium.otf") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "sfPro";
+  src: url("./fonts/sfpro/SF-Pro-Display-Semibold.otf") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  background-color: var(--PrimaryBackgroundColor);
+  font-family: "sfPro";
+  scroll-behavior: smooth;
+  color: var(--PrimaryTextColor);
+  max-width: 1200px;
+  margin: 0 auto;
+}
