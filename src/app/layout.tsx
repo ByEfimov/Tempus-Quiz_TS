@@ -3,8 +3,8 @@
 import '@/shared/assets/remove-styles.scss';
 import '@/shared/assets/variables.css';
 import '@/shared/assets/main-styles.scss';
-import StoreProvider from './providers/store';
-import NavigationProvider from './providers/navigation';
+import StoreProvider from '../user-app/providers/store';
+import NavigationProvider from '../user-app/providers/navigation';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
