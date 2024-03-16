@@ -1,4 +1,3 @@
-import { formItemType } from '../..';
 import { InputColors } from './input';
 import Styles from './input.module.scss';
 import classNames from 'classnames';
@@ -10,17 +9,13 @@ interface TextArea {
   Value: string | number;
   DefaultValue?: string;
   MaxLength?: number;
-  Variants?: formItemType;
   Color?: InputColors;
   Name?: string;
 }
 
-const TextArea = ({ Placeholder, Change, Value, DefaultValue, MaxLength, Variants, Color, Name }: TextArea) => {
+const TextArea = ({ Placeholder, Change, Value, DefaultValue, MaxLength, Color, Name }: TextArea) => {
   return (
-    <motion.div
-      variants={Variants}
-      className={classNames(Styles.Input, Color === InputColors.primary && Styles.primary)}
-    >
+    <motion.div className={classNames(Styles.Input, Color === InputColors.primary && Styles.primary)}>
       <textarea
         maxLength={MaxLength}
         onChange={(e) => Change(e)}

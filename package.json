@@ -1,6 +1,6 @@
 {
-  "name": "@awesomereactapp/source",
-  "version": "0.0.0",
+  "name": "tempus-quiz/source",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "dev": "nx dev",

@@ -6,7 +6,13 @@ import FlexContainer, {
   FlexAlignItems,
   FlexJustifyContent,
 } from '@/shared/assets/tempus-ui/components/flex-container/flex-container';
-import { InputPlaceholder } from './types';
+
+export type RegisterName = 'designation' | 'specification' | 'enterQuiz';
+export interface InputPlaceholder {
+  placeholder: string;
+  registerName: RegisterName;
+  id: number;
+}
 
 const createQuizInputConfig: InputPlaceholder[] = [
   {
