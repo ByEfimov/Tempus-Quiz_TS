@@ -6,6 +6,8 @@ import { getDatabase, onValue, ref } from 'firebase/database';
 import { getAuth, signOut } from 'firebase/auth';
 import Cookies from 'js-cookie';
 import { decryptData } from '@/features/crypto-data/cripting-data.ts';
+import { useAppDispatch, useAppSelector } from '@/features/redux-hooks';
+import { removeUser, setUser } from '@/pages/login/slice';
 
 interface ListenerFC {
   children: React.ReactNode;
@@ -13,27 +15,27 @@ interface ListenerFC {
 
 function FireBaseProvider({ children }: ListenerFC) {
   const UserIdC = decryptData(Cookies.get('UserId'));
-  const user = { id: null };
+  const dispatch = useAppDispatch();
+  const user = useAppSelector((state) => state.User);
+
   const db = getDatabase();
   const auth = getAuth();
-  console.log(UserIdC);
+
   useEffect(() => {
     function LogoutUser() {
       signOut(auth).then(() => {
-        console.log('выход');
+        dispatch(removeUser());
+        Cookies.remove('UserId');
       });
     }
 
-    const userPath = (user.id && user.id) || UserIdC;
-    console.log('/users/' + userPath);
-
-    if (UserIdC || user.id) {
-      const starCountRef = ref(db, '/users/' + (user.id || UserIdC));
-
+    if (UserIdC) {
+      const starCountRef = ref(db, '/users/' + UserIdC);
       onValue(starCountRef, (snapshot) => {
         const data = snapshot.val();
+
         if (data) {
-          console.log(data);
+          dispatch(setUser({ ...data }));
         } else {
           LogoutUser();
         }
