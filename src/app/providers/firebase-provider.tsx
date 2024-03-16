@@ -7,7 +7,7 @@ import { getAuth, signOut } from 'firebase/auth';
 import Cookies from 'js-cookie';
 import { decryptData } from '@/features/crypto-data/cripting-data.ts';
 import { useAppDispatch, useAppSelector } from '@/features/redux-hooks';
-import { removeUser, setUser } from '@/pages/login/slice';
+import { removeUser, setUser } from '@/app/slices/user/slice';
 
 interface ListenerFC {
   children: React.ReactNode;

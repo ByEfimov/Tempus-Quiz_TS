@@ -1,6 +1,6 @@
 import CryptoJS from 'crypto-js';
 
-const myKey = process.env.TEMPUS_CRIPTO_KEY;
+const myKey = process.env.NEXT_PUBLIC_TEMPUS_CRIPTO_KEY;
 
 export function encryptData(data: string | undefined | null) {
   if (data && myKey) {

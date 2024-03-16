@@ -6,6 +6,7 @@ import Title from '@/shared/assets/tempus-ui/components/title/title';
 import Button, { ButtonTypes } from '@/shared/assets/tempus-ui/components/buttons/button';
 import Form from '@/shared/assets/tempus-ui/components/form/Form';
 import { InputPlaceholder } from '@/pages';
+import { useAppSelector } from '@/features/redux-hooks';
 
 interface HomeFormProps {
   title: string;
@@ -15,8 +16,8 @@ interface HomeFormProps {
 }
 
 const HomeForm: React.FC<HomeFormProps> = ({ title, placeholders, onSubmit, needAuth = false }) => {
-  // const user = useAppSelector();
-  const userIsAuth = false; //убрать как появится хук
+  const user = useAppSelector((state) => state.User);
+  const userIsAuth = !!user.id;
 
   function authorizeUser() {
     window.location.href = 'https://tempus-one-ts.vercel.app/Login/quiz';

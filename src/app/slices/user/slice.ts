@@ -15,10 +15,20 @@ const UserSlice = createSlice({
   initialState,
   reducers: {
     setUser(state, action: PayloadAction<User>) {
-      state = action.payload;
+      state.email = action.payload.email;
+      state.id = action.payload.id;
+      state.name = action.payload.name;
+      state.experience = action.payload.experience;
+      state.level = action.payload.level;
+      state.photo = action.payload.photo;
     },
     removeUser(state) {
-      state = initialState;
+      state.email = '';
+      state.id = '';
+      state.name = '';
+      state.experience = 0;
+      state.level = 0;
+      state.photo = '';
     },
   },
 });

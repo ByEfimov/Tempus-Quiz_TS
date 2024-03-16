@@ -6,7 +6,6 @@ import FlexContainer, {
   FlexAlignItems,
   FlexJustifyContent,
 } from '@/shared/assets/tempus-ui/components/flex-container/flex-container';
-import { useAppSelector } from '@/features/redux-hooks';
 
 export type RegisterName = 'designation' | 'specification' | 'enterQuiz';
 export interface InputPlaceholder {
@@ -37,9 +36,6 @@ const loginUserInputConfig: InputPlaceholder[] = [
 ];
 
 export default function Home() {
-  const user = useAppSelector((state) => state.User);
-  console.log(user);
-
   function createQuiz() {
     console.log('create');
   }
