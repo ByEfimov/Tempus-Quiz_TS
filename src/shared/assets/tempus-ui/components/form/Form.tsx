@@ -1,14 +1,15 @@
+'use client';
 import React from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
+import { FieldValues, FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import styles from './form.module.scss';
 
-interface FormProps {
+interface FormProps<T extends FieldValues> {
   children: React.ReactNode;
-  onSubmit: () => void;
+  onSubmit: SubmitHandler<T>;
 }
 
-const Form = ({ children, onSubmit }: FormProps) => {
-  const methods = useForm();
+const Form = <T extends FieldValues>({ children, onSubmit }: FormProps<T>) => {
+  const methods = useForm<T>();
 
   return (
     <FormProvider {...methods}>

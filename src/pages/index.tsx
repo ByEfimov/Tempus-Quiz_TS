@@ -1,19 +1,28 @@
 'use client';
-
 import styles from './page.module.scss';
 import HomeForm from '@/widgets/homel-form';
 import FlexContainer, {
   FlexAlignItems,
   FlexJustifyContent,
 } from '@/shared/assets/tempus-ui/components/flex-container/flex-container';
+import { SubmitHandler } from 'react-hook-form';
+
 
 export type RegisterName = 'designation' | 'specification' | 'enterQuiz';
+
 export interface InputPlaceholder {
   placeholder: string;
   registerName: RegisterName;
   id: number;
 }
+interface FormDataCreateQuiz {
+  designation: string;
+  specification: string;
+}
 
+interface FormDataEnterQuiz {
+  enterQuiz: string;
+}
 const createQuizInputConfig: InputPlaceholder[] = [
   {
     placeholder: 'название',
@@ -36,11 +45,12 @@ const loginUserInputConfig: InputPlaceholder[] = [
 ];
 
 export default function Home() {
-  function createQuiz() {
-    console.log('create');
+  function createQuiz(data: SubmitHandler<FormDataCreateQuiz>) {
+    console.log('create', data);
   }
-  function enterQuiz() {
-    console.log('enter');
+
+  function enterQuiz(data: SubmitHandler<FormDataEnterQuiz>) {
+    console.log('enter', data);
   }
 
   return (

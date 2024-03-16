@@ -1,3 +1,4 @@
+'use client';
 import Styles from './input.module.scss';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
@@ -44,7 +45,6 @@ const Input = ({
   Variants,
   IconPosition,
   Color = InputColors.default,
-
   registerName,
 }: InputProps) => {
   const { register } = useFormContext();
