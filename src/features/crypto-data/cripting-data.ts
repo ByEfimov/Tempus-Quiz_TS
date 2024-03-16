@@ -4,15 +4,17 @@ const myKey = process.env.NEXT_PUBLIC_TEMPUS_CRIPTO_KEY;
 
 export function encryptData(data: string | undefined | null) {
   if (data && myKey) {
-    return CryptoJS.AES.encrypt(data, myKey).toString();
+    const encrypted = CryptoJS.AES.encrypt(data, myKey).toString();
+    return btoa(encrypted);
   } else {
     return '';
   }
 }
 
-export function decryptData(encryptedData: string | undefined | null | string[]) {
-  if (encryptedData && myKey && typeof encryptedData === 'string') {
-    const bytes = CryptoJS.AES.decrypt(encryptedData, myKey);
+export function decryptData(encryptedData: string | undefined | null) {
+  if (encryptedData && myKey) {
+    const decoded = atob(encryptedData);
+    const bytes = CryptoJS.AES.decrypt(decoded, myKey);
     return bytes.toString(CryptoJS.enc.Utf8);
   } else {
     return '';
