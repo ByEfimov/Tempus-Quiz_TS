@@ -1,9 +1,8 @@
-import React from "react"
+import React from 'react';
 import Styles from './button.module.scss';
-
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
-import {formItemType} from "@/shared/assets/tempus-ui/animation/form-animate";
+import { formItemType } from '@/shared/assets/tempus-ui/animation/form-animate';
 
 export enum ButtonTypes {
   active = 'active',
@@ -13,35 +12,33 @@ export enum ButtonTypes {
 }
 
 interface Button {
-  Title?: string;
-  Click: () => void;
-  Type: ButtonTypes;
-  Variants?: formItemType;
-  Class?: string;
-  children?: React.ReactChild | React.ReactNode;
+  title?: string;
+  click?: () => void;
+  type: ButtonTypes;
+  variants?: formItemType;
+  className?: string;
+  children?: React.ReactNode;
 }
 
-const Button = ({ Title, Click, Type, Variants, Class, children }: Button) => {
+const Button = ({ title, click, type, variants, className, children }: Button) => {
   const moreStyleOfButton =
-    Type === ButtonTypes.active
+    type === ButtonTypes.active
       ? Styles.ButtonActive
-      : Type === ButtonTypes.error
+      : type === ButtonTypes.error
       ? Styles.ButtonError
-      : Type === ButtonTypes.icon
+      : type === ButtonTypes.icon
       ? Styles.ButtonIcon
       : undefined;
 
   return (
     <motion.button
-      className={classNames(Styles.Button, moreStyleOfButton, Class)}
-      onClick={() => {
-        Click();
-      }}
+      className={classNames(Styles.Button, moreStyleOfButton, className)}
+      onClick={() => click && click()}
       type="submit"
-      variants={Variants}
+      variants={variants}
     >
       {children && children}
-      {Type !== ButtonTypes.icon && Title}
+      {type !== ButtonTypes.icon && title}
     </motion.button>
   );
 };

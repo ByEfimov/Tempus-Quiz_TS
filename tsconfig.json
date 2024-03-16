@@ -13,6 +13,7 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+
     "allowImportingTsExtensions": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -44,15 +45,8 @@
     "src/**/*.js",
     "src/**/*.jsx",
     ".next/types/**/*.ts",
-    "dist/awesomereactapp/.next/types/**/*.ts",
+    "dist/tempus-quiz/.next/types/**/*.ts",
     "next-env.d.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "tmp",
-    "jest.config.ts",
-    "src/**/*.spec.ts",
-    "src/**/*.test.ts",
-    "dist/awesomereactapp/**/*"
-  ]
+  "exclude": ["node_modules", "tmp", "jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts", "dist/tempus-quiz/**/*"]
 }
