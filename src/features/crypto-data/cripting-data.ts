@@ -11,8 +11,8 @@ export function encryptData(data: string | undefined | null) {
   }
 }
 
-export function decryptData(encryptedData: string | undefined | null) {
-  if (encryptedData && myKey) {
+export function decryptData(encryptedData: string | undefined | null | string[]) {
+  if (encryptedData && myKey && typeof encryptedData === 'string') {
     const decoded = atob(encryptedData);
     const bytes = CryptoJS.AES.decrypt(decoded, myKey);
     return bytes.toString(CryptoJS.enc.Utf8);
