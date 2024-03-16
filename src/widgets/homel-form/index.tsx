@@ -5,7 +5,7 @@ import { Input, InputTypes } from '@/shared/assets/tempus-ui';
 import Title from '@/shared/assets/tempus-ui/components/title/title';
 import Button, { ButtonTypes } from '@/shared/assets/tempus-ui/components/buttons/button';
 import Form from '@/shared/assets/tempus-ui/components/form/Form';
-import { InputPlaceholder } from '@/app/types';
+import { InputPlaceholder } from '@/pages/types';
 
 interface HomeFormProps {
   title: string;

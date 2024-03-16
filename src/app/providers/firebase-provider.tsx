@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
 import { useEffect } from 'react';
@@ -11,21 +12,23 @@ interface ListenerFC {
 }
 
 function FireBaseProvider({ children }: ListenerFC) {
-  const UserIdC = 1;
-  const user = { id: 'id' };
+  const UserIdC = decryptData(Cookies.get('UserId'));
+  const user = { id: null };
   const db = getDatabase();
   const auth = getAuth();
-
+  console.log(UserIdC);
   useEffect(() => {
     function LogoutUser() {
       signOut(auth).then(() => {
         console.log('выход');
       });
-      Cookies.remove('UserId');
     }
 
+    const userPath = (user.id && user.id) || UserIdC;
+    console.log('/users/' + userPath);
+
     if (UserIdC || user.id) {
-      const starCountRef = ref(db, '/users/' + user.id);
+      const starCountRef = ref(db, '/users/' + (user.id || UserIdC));
 
       onValue(starCountRef, (snapshot) => {
         const data = snapshot.val();
