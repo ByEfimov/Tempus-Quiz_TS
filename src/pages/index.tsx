@@ -2,10 +2,7 @@
 
 import styles from './page.module.scss';
 import HomeForm from '@/widgets/homel-form';
-import FlexContainer, {
-  FlexAlignItems,
-  FlexJustifyContent,
-} from '@/shared/assets/tempus-ui/components/flex-container/flex-container';
+import { FlexContainer } from '@/shared/assets/tempus-ui';
 
 export type RegisterName = 'designation' | 'specification' | 'enterQuiz';
 export interface InputPlaceholder {
@@ -44,15 +41,9 @@ export default function Home() {
   }
 
   return (
-    <FlexContainer
-      justifyContent={FlexJustifyContent.CENTER}
-      alignItems={FlexAlignItems.CENTER}
-      className={styles.container}
-    >
-      <FlexContainer justifyContent={FlexJustifyContent.SPACE_AROUND} className={styles.homeFormContainer}>
-        <HomeForm onSubmit={createQuiz} placeholders={createQuizInputConfig} title="Cоздать мероприятие" needAuth />
-        <HomeForm onSubmit={enterQuiz} placeholders={loginUserInputConfig} title="Войти на мероприятие" needAuth />
-      </FlexContainer>
+    <FlexContainer justifyContent="space-around" alignItems="center" className={styles.container}>
+      <HomeForm onSubmit={createQuiz} placeholders={createQuizInputConfig} title="Cоздать мероприятие" needAuth />
+      <HomeForm onSubmit={enterQuiz} placeholders={loginUserInputConfig} title="Войти на мероприятие" needAuth />
     </FlexContainer>
   );
 }

@@ -1,10 +1,7 @@
 'use client';
 
 import styles from './home-form.module.scss';
-import { Input, InputTypes } from '@/shared/assets/tempus-ui';
-import Title from '@/shared/assets/tempus-ui/components/title/title';
-import Button, { ButtonTypes } from '@/shared/assets/tempus-ui/components/buttons/button';
-import Form from '@/shared/assets/tempus-ui/components/form/Form';
+import { Button, Input, Form, Title } from '@/shared/assets/tempus-ui';
 import { InputPlaceholder } from '@/pages';
 import { useAppSelector } from '@/features/redux-hooks';
 
@@ -28,10 +25,10 @@ const HomeForm: React.FC<HomeFormProps> = ({ title, placeholders, onSubmit, need
       <Title title={title} />
       {placeholders.map(({ placeholder, id, registerName }) => (
         <div className={styles.inputContainer} key={id}>
-          <Input Placeholder={placeholder} Type={InputTypes.text} registerName={registerName} />
+          <Input placeholder={placeholder} type="text" registerName={registerName} />
         </div>
       ))}
-      <Button type={ButtonTypes.active}>Продолжить</Button>
+      <Button state="active">Продолжить</Button>
     </Form>
   );
 };

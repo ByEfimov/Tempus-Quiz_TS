@@ -1,66 +1,28 @@
 import Styles from './input.module.scss';
 import classNames from 'classnames';
-import { motion } from 'framer-motion';
-import { ReactNode } from 'react';
-import { formItemType } from '@/shared/assets/tempus-ui/animation/form-animate';
+import { MotionProps, motion } from 'framer-motion';
+import { InputHTMLAttributes, ReactNode } from 'react';
 import { useFormContext } from 'react-hook-form';
 
-export enum InputTypes {
-  text = 'text',
-  number = 'number',
-  password = 'password',
-  email = 'email',
-  phone = 'phone',
-}
+export type IconPositions = 'left' | 'right';
 
-export enum IconPositions {
-  left = 'left',
-  right = 'right',
-}
+export type InputColors = 'default' | 'primary';
 
-export enum InputColors {
-  default = 'default',
-  primary = 'primary',
-}
-
-interface InputProps {
-  Placeholder: string;
-  DefaultValue?: string;
-  Icon?: ReactNode;
-  MaxLength?: number;
-  Type: InputTypes;
-  Variants?: formItemType;
-  IconPosition?: IconPositions;
-  Color?: InputColors;
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  icon?: ReactNode;
+  iconPosition?: IconPositions;
+  color?: InputColors;
   registerName: string;
 }
 
-const Input = ({
-  Placeholder,
-  DefaultValue,
-  Icon,
-  MaxLength,
-  Type,
-  Variants,
-  IconPosition,
-  Color = InputColors.default,
-
-  registerName,
-}: InputProps) => {
+const Input = (props: InputProps, motionProps: MotionProps) => {
+  const { icon, iconPosition, color, registerName } = props;
   const { register } = useFormContext();
+
   return (
-    <motion.div
-      variants={Variants}
-      className={classNames(Styles.Input, Color === InputColors.primary && Styles.primary)}
-    >
-      {Icon && IconPosition === IconPositions.left && <div className={Styles.Input__Icon}>{Icon}</div>}
-      <input
-        maxLength={MaxLength}
-        type={Type}
-        defaultValue={DefaultValue}
-        placeholder={Placeholder}
-        {...register(registerName)}
-      />
+    <motion.div {...motionProps} className={classNames(Styles.Input, color === 'primary' && Styles.primary)}>
+      {icon && iconPosition === 'left' && <div className={Styles.Input__Icon}>{icon}</div>}
+      <input {...props} {...register(registerName)} />
     </motion.div>
   );
 };
