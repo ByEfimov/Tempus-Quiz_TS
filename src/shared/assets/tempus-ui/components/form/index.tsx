@@ -1,11 +1,11 @@
 import React from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
+import {FieldValues, FormProvider, SubmitHandler, useForm} from 'react-hook-form';
 import Styles from './styles.module.scss';
 import { MotionProps, motion } from 'framer-motion';
 
 interface FormProps extends MotionProps {
   children: React.ReactNode;
-  onSubmit: () => void;
+  onSubmit: SubmitHandler<FieldValues>;
 }
 
 const Form = (props: FormProps) => {
