@@ -1,4 +1,4 @@
-import Styles from './input.module.scss';
+import Styles from './styles.module.scss';
 import classNames from 'classnames';
 import { MotionProps, motion } from 'framer-motion';
 import { InputHTMLAttributes, ReactNode } from 'react';

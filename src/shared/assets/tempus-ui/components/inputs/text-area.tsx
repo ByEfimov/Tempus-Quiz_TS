@@ -1,29 +1,21 @@
+import { TextareaHTMLAttributes } from 'react';
 import { InputColors } from './input';
-import Styles from './input.module.scss';
+import Styles from './styles.module.scss';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
+import { useFormContext } from 'react-hook-form';
 
-interface TextArea {
-  Placeholder: string;
-  Change: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  Value: string | number;
-  DefaultValue?: string;
-  MaxLength?: number;
-  Color?: InputColors;
-  Name?: string;
+interface TextAreaProps {
+  color?: InputColors;
+  registerName: string;
 }
 
-const TextArea = ({ Placeholder, Change, Value, DefaultValue, MaxLength, Color, Name }: TextArea) => {
+const TextArea = (props: TextareaHTMLAttributes<HTMLTextAreaElement>, { color, registerName }: TextAreaProps) => {
+  const { register } = useFormContext();
+
   return (
-    <motion.div className={classNames(Styles.Input, Color === InputColors.primary && Styles.primary)}>
-      <textarea
-        maxLength={MaxLength}
-        onChange={(e) => Change(e)}
-        defaultValue={DefaultValue}
-        value={Value}
-        placeholder={Placeholder}
-        name={Name}
-      ></textarea>
+    <motion.div className={classNames(Styles.Input, color === 'primary' && Styles.primary)}>
+      <textarea {...props} {...register(registerName)}></textarea>
     </motion.div>
   );
 };
