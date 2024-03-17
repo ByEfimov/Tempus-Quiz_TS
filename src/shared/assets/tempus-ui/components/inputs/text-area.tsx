@@ -7,15 +7,15 @@ import { useFormContext } from 'react-hook-form';
 
 interface TextAreaProps {
   color?: InputColors;
-  registerName: string;
+  registername: string;
 }
 
-const TextArea = (props: TextareaHTMLAttributes<HTMLTextAreaElement>, { color, registerName }: TextAreaProps) => {
+const TextArea = (props: TextareaHTMLAttributes<HTMLTextAreaElement>, { color, registername }: TextAreaProps) => {
   const { register } = useFormContext();
 
   return (
     <motion.div className={classNames(Styles.Input, color === 'primary' && Styles.primary)}>
-      <textarea {...props} {...register(registerName)}></textarea>
+      <textarea {...props} {...register(registername)}></textarea>
     </motion.div>
   );
 };
