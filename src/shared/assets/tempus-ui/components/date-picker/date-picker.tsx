@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 
 interface DatepickerProps {
   Callback: (date: string | string[]) => void;
-  Default: dayjs.Dayjs,
+  Default?: dayjs.Dayjs,
   Placeholder: string
 }
 

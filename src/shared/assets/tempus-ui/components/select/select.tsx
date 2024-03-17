@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { InputColors, defaultContainer, defaultItem, formItem } from '../..';
 import Styles from './select.module.scss';
 import { Select as AntdSelect, ConfigProvider } from 'antd';

@@ -2,17 +2,16 @@
 
 import React from 'react';
 import { SubmitHandler } from 'react-hook-form';
-import dayjs from 'dayjs';
+
 import {
   BoxWithBorder,
   Input,
   Title,
   InputTypes,
-  TextArea,
-  Select,
-  SelectTypes, Datepicker,
+  TextArea
 } from '@/shared/assets/tempus-ui';
 import Form from '@/shared/assets/tempus-ui/components/form/Form.tsx';
+
 
 
 interface FormData {
@@ -21,9 +20,9 @@ interface FormData {
 
 export default function CreateQuiz() {
   const onSubmit: SubmitHandler<FormData> = (data) => console.log(data);
-  const onChange = (date : string | string[]) => {
-    console.log(date);
-  };
+  // const onChange = (date : string | string[]) => {
+  //   console.log(date);
+  // };
   return <>
 
     <Form onSubmit={onSubmit}>
@@ -31,18 +30,18 @@ export default function CreateQuiz() {
         <Title title={'создать мероприятие'} />
         <Input Placeholder={'название'} Type={InputTypes.text} registerName={'title'} />
         <TextArea Placeholder={'описание'} RegisterName={'specification'} />
-        <Datepicker Placeholder={'дата старта'} Callback={onChange} Default={dayjs(Date.now(), 'YYYY-MM-DD')}/>
-        <Select
-          Type={SelectTypes.Input} Placeholder={'организатор'}
-          Array={[{ label: 'организатор', value: 'организатор' }]}
-          setSelect={(value: string) => console.log(value)}
-        />
+        {/*<Datepicker Placeholder={'дата старта'} Callback={onChange} />*/}
+        {/*<Select*/}
+        {/*  Type={SelectTypes.Input} Placeholder={'организатор'}*/}
+        {/*  Array={[{ label: 'организатор', value: 'организатор' }]}*/}
+        {/*  setSelect={(value: string) => console.log(value)}*/}
+        {/*/>*/}
 
-        <Select
-          Type={SelectTypes.Input} Placeholder={'приватность'}
-          Array={[{ label: 'приватность', value: 'приватность' }]}
-          setSelect={(value: string) => console.log(value)}
-        />
+        {/*<Select*/}
+        {/*  Type={SelectTypes.Input} Placeholder={'приватность'}*/}
+        {/*  Array={[{ label: 'приватность', value: 'приватность' }]}*/}
+        {/*  setSelect={(value: string) => console.log(value)}*/}
+        {/*/>*/}
       </BoxWithBorder>
     </Form>
   </>;
