@@ -11,8 +11,8 @@ export type FlexWrap = 'nowrap' | 'wrap' | 'wrap-reverse';
 
 interface FlexContainerProps {
   className?: string;
+  height?: string;
   children: React.ReactNode;
-
   width?: string;
   flexDirection?: FlexDirection;
   justifyContent?: FlexAlignment;
