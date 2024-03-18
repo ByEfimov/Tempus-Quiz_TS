@@ -5,12 +5,12 @@ import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import { useFormContext } from 'react-hook-form';
 
-interface TextAreaProps {
+interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement>{
   color?: InputColors;
   registername: string;
 }
 
-const TextArea = (props: TextareaHTMLAttributes<HTMLTextAreaElement>, { color, registername }: TextAreaProps) => {
+const TextArea: React.FC<TextAreaProps>  = ({ color, registername,...props }) => {
   const { register } = useFormContext();
 
   return (
