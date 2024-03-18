@@ -10,10 +10,17 @@ const UserLogo = ({ logo }: UserLogoProps) => {
   const user = useAppSelector((state) => state.User);
   const UserIsAuth = !!user.id;
 
-  return (
+  return !UserIsAuth ? (
     <Image
       style={UserIsAuth || logo ? { width: '100%', height: '100%', borderRadius: '50%' } : undefined}
-      src={logo || FakeLogo || (UserIsAuth && user.photo)}
+      src={FakeLogo}
+      alt="user logo"
+    />
+  ) : (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      style={UserIsAuth || logo ? { width: '100%', height: '100%', borderRadius: '50%' } : undefined}
+      src={(logo && logo) || (UserIsAuth && user.photo)}
       alt="user logo"
     />
   );
