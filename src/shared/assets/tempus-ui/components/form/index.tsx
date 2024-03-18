@@ -1,5 +1,5 @@
 import React from 'react';
-import {FieldValues, FormProvider, SubmitHandler, useForm} from 'react-hook-form';
+import { FieldValues, FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import Styles from './styles.module.scss';
 import { MotionProps, motion } from 'framer-motion';
 

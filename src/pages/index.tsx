@@ -1,8 +1,7 @@
 'use client';
 
-import styles from './page.module.scss';
 import HomeForm from '@/widgets/homel-form';
-import { FlexContainer} from '@/shared/assets/tempus-ui';
+import { FlexContainer } from '@/shared/assets/tempus-ui';
 import { FieldValues } from 'react-hook-form';
 
 export type RegisterName = 'designation' | 'specification' | 'enterQuiz';
@@ -14,20 +13,15 @@ export interface InputPlaceholder {
 
 const createQuizInputConfig: InputPlaceholder[] = [
   {
-    placeholder: 'название',
+    placeholder: 'Название',
     registername: 'designation',
     id: 1,
-  },
-  {
-    placeholder: 'описание',
-    registername: 'specification',
-    id: 2,
   },
 ];
 
 const loginUserInputConfig: InputPlaceholder[] = [
   {
-    placeholder: 'код мероприятия',
+    placeholder: 'Код мероприятия',
     registername: 'enterQuiz',
     id: 1,
   },
@@ -43,7 +37,7 @@ export default function Home() {
   }
 
   return (
-    <FlexContainer justifyContent="space-around" alignItems="center" className={styles.container}>
+    <FlexContainer justifyContent="space-around" alignItems="stretch" height="230px">
       <HomeForm onSubmit={createQuiz} placeholders={createQuizInputConfig} title="Cоздать мероприятие" needAuth />
       <HomeForm onSubmit={enterQuiz} placeholders={loginUserInputConfig} title="Войти на мероприятие" needAuth />
     </FlexContainer>
