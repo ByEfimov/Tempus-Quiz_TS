@@ -1,11 +1,10 @@
 'use client';
 
-import React from "react";
-import styles from './home-form.module.scss';
+import React from 'react';
 import { Button, Input, Form, Title } from '@/shared/assets/tempus-ui';
 import { InputPlaceholder } from '@/pages';
 import { useAppSelector } from '@/features/redux-hooks';
-import {FieldValues, SubmitHandler} from "react-hook-form";
+import { FieldValues, SubmitHandler } from 'react-hook-form';
 
 interface HomeFormProps {
   title: string;
@@ -23,12 +22,10 @@ const HomeForm: React.FC<HomeFormProps> = ({ title, placeholders, onSubmit, need
   }
 
   return (
-    <Form onSubmit={needAuth && !userIsAuth ? authorizeUser : onSubmit}>
+    <Form onSubmit={needAuth && !userIsAuth ? authorizeUser : onSubmit} style={{ width: '350px' }}>
       <Title title={title} />
       {placeholders.map(({ placeholder, id, registername }) => (
-        <div className={styles.inputContainer} key={id}>
-          <Input placeholder={placeholder} type="text" registername={registername} />
-        </div>
+        <Input placeholder={placeholder} key={id} type="text" registername={registername} />
       ))}
       <Button state="active">Продолжить</Button>
     </Form>
