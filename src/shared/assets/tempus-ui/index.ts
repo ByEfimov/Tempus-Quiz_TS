@@ -6,5 +6,6 @@ export {default as FlexContainer} from './components/flex-container';
 export {default as Form} from './components/form';
 export {default as Title} from './components/title';
 export {default as DatePickerField} from './components/date-picker/date-picker.tsx';
+export {default as TimePickerField} from "./components/date-picker/time-picker.tsx"
 export {default as Select} from "./components/select/select.tsx"
 export {default as Box} from "./components/box/box.tsx"

@@ -1,20 +1,19 @@
-'use client';
-import dayjs from "dayjs";
-import {DatePicker} from 'antd';
-import {motion} from 'framer-motion';
-import {Controller, useFormContext} from "react-hook-form";
-import {formItem} from '../..';
 import {InputColors} from "@/shared/assets/tempus-ui/components/inputs/input.tsx";
+import {Controller, useFormContext} from "react-hook-form";
+import {motion} from "framer-motion";
+import {formItem} from "@/shared/assets/tempus-ui";
 import {AntdConfigProvider} from "@/shared/assets/tempus-ui/components/antd-config-provider/antd-config-provider.tsx";
-import locale from 'antd/es/date-picker/locale/ru_RU';
+import { TimePicker} from "antd";
+import dayjs from "dayjs";
+import locale from "antd/es/date-picker/locale/ru_RU";
 
-interface RHFDatePickerFieldProps {
+interface TimePickerFieldProps {
     name: string;
     placeholder?: string;
     color?: InputColors
 }
-
-const DatePickerField: React.FC<RHFDatePickerFieldProps> = ({name, placeholder, color = "default"}) => {
+const format = 'HH:mm';
+const TimePickerField: React.FC<TimePickerFieldProps> = ({name, placeholder, color = "default"}) => {
     const {control} = useFormContext();
 
     return (
@@ -28,7 +27,7 @@ const DatePickerField: React.FC<RHFDatePickerFieldProps> = ({name, placeholder, 
                 return (
                     <motion.div variants={formItem} >
                         <AntdConfigProvider color={color}>
-                            <DatePicker
+                            <TimePicker
                                 placeholder={placeholder}
                                 status={fieldState.error ? "error" : undefined}
                                 ref={field.ref}
@@ -39,6 +38,7 @@ const DatePickerField: React.FC<RHFDatePickerFieldProps> = ({name, placeholder, 
                                     field.onChange(date ? date.valueOf() : null);
                                 }}
                                 locale={locale}
+                                format={format}
                                 style={{
                                     height: 45,
                                     fontWeight: 400,
@@ -59,4 +59,4 @@ const DatePickerField: React.FC<RHFDatePickerFieldProps> = ({name, placeholder, 
     );
 };
 
-export default DatePickerField
+export default TimePickerField
