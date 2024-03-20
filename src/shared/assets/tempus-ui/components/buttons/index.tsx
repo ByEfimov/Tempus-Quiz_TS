@@ -10,6 +10,7 @@ interface ButtonProps extends MotionProps {
   state: ButtonStates;
   className?: string;
   children: React.ReactNode;
+  onClick?: () => void;
 }
 
 const Button = (props: ButtonProps, motionProps: MotionProps) => {

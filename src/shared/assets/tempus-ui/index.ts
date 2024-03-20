@@ -9,3 +9,4 @@ export {default as DatePickerField} from './components/date-picker/date-picker.t
 export {default as TimePickerField} from "./components/date-picker/time-picker.tsx"
 export {default as Select} from "./components/select/select.tsx"
 export {default as Box} from "./components/box/box.tsx"
+export {default as LoadImage} from "./components/load-image/load-image.tsx"
