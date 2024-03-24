@@ -1,0 +1,12 @@
+.Box{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 553px;
+}
+
+.Border{
+  border: 1px solid var(--TransparentColor);
+  border-radius: 10px;
+}

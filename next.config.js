@@ -1,22 +1,30 @@
 //@ts-check
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { composePlugins, withNx } = require('@nx/next');
+const {composePlugins, withNx} = require('@nx/next');
 
 /**
  * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
  **/
 const nextConfig = {
-  nx: {
-    // Set this to true if you would like to use SVGR
-    // See: https://github.com/gregberge/svgr
-    svgr: false,
-  },
+    nx: {
+        // Set this to true if you would like to use SVGR
+        // See: https://github.com/gregberge/svgr
+        svgr: false,
+    }, reactStrictMode: true,
+    transpilePackages: [
+        'rc-util',
+        '@ant-design',
+        'kitchen-flow-editor',
+        '@ant-design/pro-editor', 'antd',
+        'rc-pagination',
+        'rc-picker'
+    ],
 };
 
 const plugins = [
-  // Add more Next.js plugins to this list if needed.
-  withNx,
+    // Add more Next.js plugins to this list if needed.
+    withNx,
 ];
 
 module.exports = composePlugins(...plugins)(nextConfig);

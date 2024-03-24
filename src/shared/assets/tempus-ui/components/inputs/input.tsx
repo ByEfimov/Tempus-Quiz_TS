@@ -17,7 +17,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const Input = (props: InputProps, motionProps: MotionProps) => {
   const { icon, iconPosition, color, registername } = props;
-  const { register } = useFormContext();
+  const { register} = useFormContext();
 
   return (
     <motion.div {...motionProps} className={classNames(Styles.Input, color === 'primary' && Styles.primary)}>
